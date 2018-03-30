@@ -57,7 +57,7 @@
                     #panel4
                 </div>
                 <div class="panel-body">
-                    content
+                    Click for new content
                 </div>
             </div>
         </div>
@@ -78,16 +78,22 @@
     //Lesson Two
     $('#btn2').html('<strong>Bold</strong>');
     $('#btn1').on('click', function() {
-      $('#panel1').toggle();
+      $('#panel1').fadeToggle();
+    });
+    $('#panel1').on('mouseover', function() {
+      $('#panel1').fadeToggle();
     });
     $('#btn2').on('click', function() {
-      $('#panel2').toggle();
+      $('#panel2').fadeToggle();
     });
     $('#btn3').on('click', function() {
-      $('#panel3').toggle();
+      $('#panel3').fadeToggle();
     });
     $('#btn4').on('click', function() {
-      $('#panel4').toggle();
+      $('#panel4').fadeToggle();
+    });
+    $('#panel4').on('click', function() {
+      $('#panel4 .panel-body').html('New content');
     });
 
 
