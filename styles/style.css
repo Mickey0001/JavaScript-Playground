@@ -1,4 +1,7 @@
-h1 {
-  color: blue;
-  font-size: 50px;
+.jumbotron {
+  text-align: center;
+}
+button {
+  width: 100px;
+  height: 40px;
 }

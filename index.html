@@ -11,12 +11,68 @@
 
 <body>
   <div class="container">
-    <h1 class="text-center">Test</h1>
-  
-  </div>
+    <div class="jumbotron">
+        <h1>Query Practice</h1>
+        <button class="btn" id="btn1">Button 1</button>
+        <button class="btn" id="btn2">#btn2</button>
+        <button class="btny" id="btn3">#btn3</button>
+        <button class="btn" id="btn4">#btn4</button>
+    </div>
 
+    <div class="row">
+        <div class="col-xs-3">
+            <div id="panel1" class="panel panel-primary">
+                <div class="panel-heading">
+                    #panel1
+                </div>
+                <div class="panel-body">
+                    content
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div id="panel2" class="panel panel-primary">
+                <div class="panel-heading">
+                    #panel2
+                </div>
+                <div class="panel-body">
+                    content
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div id="panel3" class="panel panel-primary">
+                <div class="panel-heading">
+                    #panel3
+                </div>
+                <div class="panel-body">
+                    content
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div id="panel4" class="panel panel-primary">
+                <div class="panel-heading">
+                    #panel4
+                </div>
+                <div class="panel-body">
+                    content
+                </div>
+            </div>
+        </div>
+    </div>
 
+</div>
 <script src="../scripts/jQuery3.3.1.js"></script>
 <script src="../scripts/bootstrap.js"></script>
+<script>
+  $(document).ready(function() {
+
+    $('#panel1').hide(1000).show(2000).hide(1000).show(2000);
+    $('#panel2').fadeOut(1000).slideUp(1000).delay(1000).slideDown(2000).slideUp(1000).slideDown(2000);
+    $('#panel3').fadeToggle(1000).fadeToggle(2000);
+
+  });
+</script>
 </body>
 </html>
