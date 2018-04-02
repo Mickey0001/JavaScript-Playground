@@ -37,7 +37,24 @@ $(document).ready(function() {
   });
   
   //Lesson Four
- 
+  // $('li').on('click', function() {
+  //   $(this).removeClass('special');
+  //   $(this).siblings().addClass('special');
+  // });
+  // $('.list').on('click', function() {
+  //   $(this).find('li').find().filter('.special').addClass('special');
+  // });
+  // $(function() {
+  //   $('li').on('click', function() {
+  //     $(this).hide();
+  //     if ( $(this)/is('.special') ){
+  //       alert('special');
+  //     }
+  //   });
+  // });
+
+  //Lesson Five
+
 
 
 });
