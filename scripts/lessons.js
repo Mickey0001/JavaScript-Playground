@@ -1,12 +1,10 @@
-$(document).ready(function() {
-
-  //Lesson One
+  //Lesson 1
   // $('#panel1').hide(1000).show(2000).hide(1000).show(2000);
   // $('#panel2').fadeOut(1000).slideUp(1000).delay(1000).slideDown(2000).slideUp(1000).slideDown(2000);
   // $('#panel3').fadeToggle(1000).fadeToggle(2000).css({color:'red', fontStyle: 'italic'});
   // $('#btn1').css({opacity:'0.5'});
 
-  //Lesson Two
+  //Lesson 2
   // $('#btn2').html('<strong>Bold</strong>');
   // $('#btn1').on('click', function() {
   //   $('#panel1').fadeToggle();
@@ -27,7 +25,7 @@ $(document).ready(function() {
   //   $('#panel4 .panel-body').html('New content');
   // });
 
-  //Lesson three
+  //Lesson 3
   // var content = "My new content";
 
   // $('.panel-button').on('click',  function() {
@@ -36,7 +34,7 @@ $(document).ready(function() {
   //     $('#'+panel+'.panel-body').html(content);
   // });
   
-  //Lesson Four
+  // //Lesson 4
   // $('li').on('click', function() {
   //   $(this).removeClass('special');
   //   $(this).siblings().addClass('special');
@@ -53,28 +51,31 @@ $(document).ready(function() {
   //   });
   // });
 
-  //Lesson Five
+  //Lesson 5
   $(function() {
+
     $('.tab-panels .tabs li').on('click', function() {
-      $('tab-panels .tabs li.active');
+
+      var $panel = $(this).closest('.tab-panels');
+
+      $panel.find('.tabs li.active').removeClass('active');
       $(this).addClass('active');
-      //Find which panel to show
+
+      //Figure out which panel to show
       var panelToShow = $(this).attr('rel');
 
       //Hide current panel
-      $('tab-panels .panel.active').slideUp(300, function() {
+      $panel.find('.panel.active').toggle(300, showNextPanel);
+
+      //Show next panel
+      function showNextPanel() {
         $(this).removeClass('active');
 
-        $('#'+panelToShow).slideDown(300, function() {
+        $('#'+panelToShow).toggle(300, function() {
           $(this).addClass('active');
         });
-      });
-
-      //Show new panel
-
+      }
     });
-
   });
 
-
-});
+  //Lesson 6
