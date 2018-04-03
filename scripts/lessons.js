@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
   //Lesson One
-  $('#panel1').hide(1000).show(2000).hide(1000).show(2000);
-  $('#panel2').fadeOut(1000).slideUp(1000).delay(1000).slideDown(2000).slideUp(1000).slideDown(2000);
-  $('#panel3').fadeToggle(1000).fadeToggle(2000).css({color:'red', fontStyle: 'italic'});
-  $('#btn1').css({opacity:'0.5'});
+  // $('#panel1').hide(1000).show(2000).hide(1000).show(2000);
+  // $('#panel2').fadeOut(1000).slideUp(1000).delay(1000).slideDown(2000).slideUp(1000).slideDown(2000);
+  // $('#panel3').fadeToggle(1000).fadeToggle(2000).css({color:'red', fontStyle: 'italic'});
+  // $('#btn1').css({opacity:'0.5'});
 
   //Lesson Two
   // $('#btn2').html('<strong>Bold</strong>');
@@ -28,13 +28,13 @@ $(document).ready(function() {
   // });
 
   //Lesson three
-  var content = "My new content";
+  // var content = "My new content";
 
-  $('.panel-button').on('click',  function() {
-      var panel = $(this).attr('data-panel');
-      $('#'+panel).toggle();
-      $('#'+panel+'.panel-body').html(content);
-  });
+  // $('.panel-button').on('click',  function() {
+  //     var panel = $(this).attr('data-panel');
+  //     $('#'+panel).toggle();
+  //     $('#'+panel+'.panel-body').html(content);
+  // });
   
   //Lesson Four
   // $('li').on('click', function() {
@@ -54,7 +54,27 @@ $(document).ready(function() {
   // });
 
   //Lesson Five
+  $(function() {
+    $('.tab-panels .tabs li').on('click', function() {
+      $('tab-panels .tabs li.active');
+      $(this).addClass('active');
+      //Find which panel to show
+      var panelToShow = $(this).attr('rel');
 
+      //Hide current panel
+      $('tab-panels .panel.active').slideUp(300, function() {
+        $(this).removeClass('active');
+
+        $('#'+panelToShow).slideDown(300, function() {
+          $(this).addClass('active');
+        });
+      });
+
+      //Show new panel
+
+    });
+
+  });
 
 
 });
