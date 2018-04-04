@@ -4,7 +4,7 @@ $(function() {
 
   //config
   let width = 720;
-  let animationSpeed = 1000;
+  let animationSpeed = 2000;
   let pause = 3000;
   let curentSlide = 1;
 
