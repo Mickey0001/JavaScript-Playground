@@ -3,23 +3,35 @@
 $(function() {
 
   //config
-  var width = 720;
-  var animationSpeed = 1000;
-  var pause = 3000;
+  let width = 720;
+  let animationSpeed = 1000;
+  let pause = 3000;
+  let curentSlide = 1;
 
   //caching the DOM
-  var $slider =  $('#slider');
-  var $slideContainer = $slider.find('.slides');
-  var $slides = $slideContainer.find('.slide');
+  let $slider =  $('#slider');
+  let $slideContainer = $slider.find('.slides');
+  let $slides = $slideContainer.find('.slide');
 
-  //setInterval
-  setInterval(function() {
-    $slideContainer.animate({'margin-left': '-='+width}, animationSpeed);
-  }, pause);
+  let interval;
+  
+  function startSlider() {
+    interval = setInterval(function() {
+      $slideContainer.animate({'margin-left': '-='+width}, animationSpeed, function() {
+        curentSlide++;
+        if(curentSlide === $slides.length) {
+          curentSlide = 1;
+          $slideContainer.css('margin-left', 0);
+        }
+      });
+    }, pause);
+  }
 
-  //animate margin-left
-  //if it's last slide, go to position 1
+  function pauseSlider() {
+    clearInterval(interval);
+  }
 
-  //listen for mouseenter and pause
-  //resume on mouseleave
+  $slider.on('mouseenter', pauseSlider).on('mouseleave', startSlider);
+
+  startSlider();
 });
