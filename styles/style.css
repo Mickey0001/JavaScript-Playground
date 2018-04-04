@@ -1,3 +1,7 @@
+body {
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
 .jumbotron {
   text-align: center;
 }
@@ -24,7 +28,6 @@ button {
   font-weight: 200;
   cursor: pointer;
 }
-
 .tab-panels ul li:hover {
   color: #fff;
   background: #666;
@@ -44,4 +47,24 @@ button {
 
 .tab-panels .panel.active {
   display: block;
+}
+
+#slider {
+  width: 720px;
+  height: 400px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+#slider .slides {
+  display: block;
+  width: 6000px;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+}
+#slider .slide {
+  float: left;
+  list-style-type: none;
+  width: 720px;
+  height: 400px;
 }
