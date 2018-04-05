@@ -4,12 +4,13 @@ body {
 }
 li {
   list-style-type: none;
+  margin: 0 auto;
 }
 img {
   width: 100%;
   height: 100%;
 }
-.form-control {
+.form-control, .list-group-item {
   width: 20%;
   margin: 0 auto;
 }
