@@ -10,7 +10,7 @@ function addOrder(order){
 
   $.ajax({
     type: 'GET',
-    url: 'http://rest.learncode.academy/api/:user/:collection',
+    url: 'https://cors-anywhere.herokuapp.com/http://rest.learncode.academy/api/:user/:collection',
     success: function(orders) {
       $.each(orders, function(i, order) {
        addOrder(order);
@@ -27,7 +27,7 @@ function addOrder(order){
     };
     $.ajax({
       type: 'POST',
-      url: 'http://rest.learncode.academy/api/orders/mirza',
+      url: 'https://cors-anywhere.herokuapp.com/http://rest.learncode.academy/api/orders/mirza',
       data: order,
       success: function(newOrder) {
         addOrder(newOrder);
