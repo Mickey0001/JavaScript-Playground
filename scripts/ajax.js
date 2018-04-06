@@ -4,13 +4,15 @@ var $orders = $('#orders');
 var $name = $('#name');
 var $drink = $('#drink');
 
+var orderTemplate = "<li><strong>Name:</strong> {{name}}, <strong>Drink:</strong> {{drink}} <br> <button data-id='{{id}}' class='remove btn btn-danger'>Remove</button></li>";
+
 function addOrder(order){
-  $orders.append('<li class="list-group-item"><strong>Name: </strong>' + order.name + ' ' + '<strong>Drink: </strong>' + order.drink + '</li>');
+  $orders.append(Mustache.render(orderTemplate, order));
 }
 
   $.ajax({
     type: 'GET',
-    url: 'https://cors-anywhere.herokuapp.com/http://rest.learncode.academy/api/:user/:collection',
+    url: 'https://cors-anywhere.herokuapp.com/http://rest.learncode.academy/api/mirza/20180406153205',
     success: function(orders) {
       $.each(orders, function(i, order) {
        addOrder(order);
@@ -27,7 +29,7 @@ function addOrder(order){
     };
     $.ajax({
       type: 'POST',
-      url: 'https://cors-anywhere.herokuapp.com/http://rest.learncode.academy/api/orders/mirza',
+      url: 'https://cors-anywhere.herokuapp.com/http://rest.learncode.academy/api/orders/mirza/',
       data: order,
       success: function(newOrder) {
         addOrder(newOrder);
@@ -35,6 +37,19 @@ function addOrder(order){
       error: function() {
         alert('error posting order');
       }
+    });
+    $orders.delegate('.remove', 'click', function() {
+
+      var $li = $(this).closest('li');
+      $.ajax({
+        type: 'DELETE',
+        url: 'http://rest.learncode.academy/api/orders/mirza/20180406153205' + $(this).attr('data-id'),
+        success: function() {
+          $li.fadeOut(300, function() {
+            $(this).remove();
+          });
+        }
+      });
     });
   })
 });
