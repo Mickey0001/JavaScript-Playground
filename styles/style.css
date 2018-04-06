@@ -80,3 +80,15 @@ button {
   width: 720px;
   height: 400px;
 }
+
+ul li .edit {
+  display: none;
+}
+
+ul li.edit .edit {
+  display: initial;
+}
+
+ul li.edit .noEdit {
+  display: none;
+}

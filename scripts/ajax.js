@@ -4,7 +4,7 @@ var $orders = $('#orders');
 var $name = $('#name');
 var $drink = $('#drink');
 
-var orderTemplate = "<li><strong>Name:</strong> {{name}}, <strong>Drink:</strong> {{drink}} <br> <button data-id='{{id}}' class='remove btn btn-danger'>Remove</button></li>";
+var orderTemplate = $('#order-template').html();
 
 function addOrder(order){
   $orders.append(Mustache.render(orderTemplate, order));
@@ -54,5 +54,36 @@ function addOrder(order){
         }
       });
     });
-  })
+    $orders.delegate('.editOrder', 'click', function() {
+      var $li = $(this).closest('li');
+      $li.find('input.name').val( $li.find('span.name').html() );
+      $li.find('input.drink').val( $li.find('span.drink').html() );
+      $li.addClass('edit');
+    });
+
+    $orders.delegate('.cancelEdit', 'click', function() {
+       $(this).closest('li').removeClass('edit');
+    });
+
+    $orders.delegate('.saveEdit', 'clic', function() {
+      var $li = $(this).closest('li');
+      var order = {
+        name: $li.find('input.name').val(),
+        name: $li.find('input.drink').val()
+      };
+      $.ajax({
+        type: 'PUT',
+        url: 'http://rest.learncode.academy/api/orders/mirza/' + $li.attr('data-id'),
+        data: order,
+        success: function(newOrder) {
+          $li.find('span.name').html(order.name);
+          $li.find('span.drink').html(order.drink);
+          $li.removeClass('edit');
+        },
+        error: function() {
+          alert('error updating order');
+        }
+      });
+    });
+  });
 });
