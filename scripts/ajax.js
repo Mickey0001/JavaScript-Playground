@@ -45,7 +45,7 @@ function addOrder(order){
 
       $.ajax({
         type: 'DELETE',
-        url: 'http://rest.learncode.academy/api/orders/mirza/20180406153205' + $(this).attr('data-id'),
+        url: 'http://rest.learncode.academy/api/orders/mirza/' + $(this).attr('data-id'),
         success: function() {
           $(self);
           $li.fadeOut(300, function() {
