@@ -41,10 +41,13 @@ function addOrder(order){
     $orders.delegate('.remove', 'click', function() {
 
       var $li = $(this).closest('li');
+      var self = this;
+
       $.ajax({
         type: 'DELETE',
         url: 'http://rest.learncode.academy/api/orders/mirza/20180406153205' + $(this).attr('data-id'),
         success: function() {
+          $(self);
           $li.fadeOut(300, function() {
             $(this).remove();
           });
