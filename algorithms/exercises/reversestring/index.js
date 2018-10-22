@@ -48,7 +48,8 @@ return reversed;
 
 //Reduce method
   return str.split('').reduce((reversed, character) => character + reversed, '');
-
+  debugger;
 }
+reverse('asassa');
 
 module.exports = reverse;
