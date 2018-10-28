@@ -10,11 +10,11 @@
 
 function chunk(array, size) 
 {
-let r = [];
-
-for (let i = 0, len = array.length; i < length; i+= size)
-  r.push(array.slice(i, i + size));
-return r;
+  var i,j,temparray,chunk = 10;
+  for (i=0,j=array.length; i<j; i+=chunk) {
+      temparray = array.slice(i,i+chunk);
+      // do whatever
+  }
 }
 
 module.exports = chunk;
