@@ -10,11 +10,22 @@
 
 function chunk(array, size) 
 {
-  var i,j,temparray,chunk = 10;
-  for (i=0,j=array.length; i<j; i+=chunk) {
-      temparray = array.slice(i,i+chunk);
-      // do whatever
+  const chunked = [];
+
+  for (let element of array)
+  {
+    const last = chunked[chunked.length - 1];
+
+    if (!last || last.length === size)
+    {
+      chunked.push([element]);
+    }
+    else 
+    {
+      last.push(element);
+    }
   }
+  return chunked;
 }
 
 module.exports = chunk;
