@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
 // --- Directions
 // Given a linked list, return the element n spaces
 // from the last node in the list.  Do not call the 'size'
@@ -11,13 +14,12 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) 
-{
+function fromLast(list, n) {
   let slow = list.getFirst();
   let fast = list.getFirst();
 
   while (n > 0)
-  {
+{
     fast = fast.next;
     n--;
   }
@@ -31,3 +33,4 @@ function fromLast(list, n)
 }
 
 module.exports = fromLast;
+
