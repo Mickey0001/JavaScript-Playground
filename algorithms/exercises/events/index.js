@@ -3,17 +3,27 @@
 // Events class.  The Events class should
 // have methods 'on', 'trigger', and 'off'.
 
-class Events {
+class Events 
+{
   // Register an event handler
-  on(eventName, callback) {}
+  on(eventName, callback) 
+  {
+
+  }
 
   // Trigger all callbacks associated
   // with a given eventName
-  trigger(eventName) {}
+  trigger(eventName) 
+  {
+
+  }
 
   // Remove all event handlers associated
   // with the given eventName
-  off(eventName) {}
+  off(eventName) 
+  {
+
+  }
 }
 
 module.exports = Events;
