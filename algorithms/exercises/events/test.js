@@ -6,7 +6,7 @@ test('Events can be registered then triggered', () => {
   const cb1 = jest.fn();
 
   events.on('click', cb1);
-  events.trigger('click');
+  events.trigger('click'); 
 
   expect(cb1.mock.calls.length).toBe(1);
 });
