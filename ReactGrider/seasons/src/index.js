@@ -16,25 +16,26 @@ class App extends React.Component
     );
   }
 
-  componentDidUpdate()
+  renderContent()
   {
-    
+      if (this.state.errorMessage && !this.state.lat)
+        {
+          return <div>Error: {this.state.errorMessage} </div>
+        }
+      
+      if (!this.state.errorMessage && this.state.lat)
+        {
+          return <SeasonDisplay lat={this.state.lat}/>
+        }
+      
+      return <Loader message="Please allow location detection."/>
   }
 
   render()
   {
-    if (this.state.errorMessage && !this.state.lat)
-      {
-        return <div>Error: {this.state.errorMessage} </div>
-      }
-    
-    if (!this.state.errorMessage && this.state.lat)
-      {
-        return <SeasonDisplay lat={this.state.lat}/>
-      }
-    
-    return <Loader message="Please allow location detection."/>
+    return <div className="ui segment">{this.renderContent()}</div>;
   }
+
 
 }
 
