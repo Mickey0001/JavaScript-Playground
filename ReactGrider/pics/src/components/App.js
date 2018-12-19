@@ -20,7 +20,7 @@ class App extends React.Component
         Authorization: 'Client-ID 02861f565eb98fb2495f2402643d4ff1e5038d549fb7b8e74c4b6e0a49212035'
       }
     });
-    console.log(response.data.results)
+    this.setState({ images: response.data.results });
   }
 
   render()
@@ -28,6 +28,7 @@ class App extends React.Component
     return(
       <div className="ui container" style={{marginTop:'10px'}}>
         <SearchBar onSubmit={this.onSearchSubmit}/>
+        Found: {this.state.images.length} images
       </div>
     ); 
   }
