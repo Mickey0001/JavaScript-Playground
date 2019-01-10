@@ -59,15 +59,11 @@ class App extends Component
     {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return <Person 
-            name={person.name} 
-            click={() => this.deletePersonHandler(index)}
-            age={person.age}
-            key={person.id}
-            changed={(event) => this.nameChangedHandler(event, person)}
-            />
-          })}
+          <Person 
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangedHandler}
+          />
         </div> 
       );
       style.backgroundColor = 'red';
@@ -86,9 +82,6 @@ class App extends Component
 
     return (
       <div className="App">
-        <h1>Hi, there I'm React.</h1>
-        <p className={classes}>This is working.</p>
-        <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
       </div>
     );
